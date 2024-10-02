@@ -3,6 +3,7 @@ import { faBolt } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import thunder from '../images/thunderbolt.png'
 import './style.css' ;
+import { useState } from 'react';
 
 function Logo(){
     return (
@@ -14,17 +15,35 @@ function Logo(){
 }
 
 function Button(props){
-    return <input className='signup-button' type={props.type} value={props.value} name={props.name} placeholder={props.placeholder} />;
+    return <input className='signup-button' type={props.type} value={props.value} name={props.name} placeholder={props.placeholder} onChange={(e) => {
+        if (props.name == 'uName')
+        {
+            props.setUser({...props.user, userName:e.target.value})
+        }
+        else if (props.name == 'uEmail')
+        {
+            props.setUser({...props.user, userEmail:e.target.value})
+        }
+        else if (props.name == 'upassword')
+        {
+            props.setUser({...props.user, userPass:e.target.value})
+        }
+    }} />;
 }
 function SignupSection(props){
+    const [user,setUser] = useState({
+        userName: '',
+        userEmail: '',
+        userPass: ''
+    })
     return (
         <div className="SignupSection">
             <h1 className='signup-title'>{props.title}</h1>
-            <Button type="text" name="uName" placeholder="Username"/>
+            <Button user={user} setUser={setUser} type="text" name="uName" placeholder="Username"/>
             <br />
-            <Button type="email" name="uEmail" placeholder="Email"/>
+            <Button user={user} setUser={setUser} type="email" name="uEmail" placeholder="Email"/>
             <br />
-            <Button type="password" name="upassword" placeholder="Password"/>
+            <Button user={user} setUser={setUser} type="password" name="upassword" placeholder="Password"/>
             <br />
             <Button type="password" name="upassword2" placeholder="Confirm Password"/>
             <br />
