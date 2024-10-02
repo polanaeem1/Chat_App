@@ -121,3 +121,30 @@ h1
   width: 400px;
   transform: rotate(-120deg);
 }
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  .signup-content
+  {
+    text-align: center;
+  }
+  .login-container
+  {
+    margin-left: 60px;
+  }
+  .hero-section
+  {
+  display: none;
+  }
+ 
+}
+
+/* Small Screens */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-section::after
+  {
+    display: none;
+  }
+}
