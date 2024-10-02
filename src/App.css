@@ -1,38 +1,123 @@
+body
+{
+  background-color: black;
+}
 .App {
-  text-align: center;
+  width: 80%;
+  margin: 30px auto;
+}
+a{
+  text-decoration: none;
+}
+h1
+{
+  margin: 0;
+  padding: 0;
+}
+.signup-content
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.SignupSection
+{
+  padding: 100px 0;
+  width: 300px;
+}
+.logo
+{
+  display: flex;
+  align-items: center;
+}
+.logo h1
+{
+  color: white;
+  font-size: 35px;
+  margin-left: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.signup-title{
+  color: white;
+  margin-bottom: 30px;
+}
+.signup-button:not(:last-of-type){
+  color: white;
+  border: none;
+  border-bottom: 1px solid #eee;
+  background-color: transparent;
+  font-size: 17px;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.signup-button:focus
+{
+  outline: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.signup-button:last-of-type{
+  color: black;
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: yellow;
+  padding: 7px 40px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.not-guest
+{
+  color: #eee;
+}
+.login-container
+{
+  display: flex;
+  align-items: center;
+  background-color: rgba(158, 158, 107, 0.135);
+  width: fit-content;
+  padding: 7px 40px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.login-href
+{
+  margin-right: 20px;
+  color:white;
+  font-size: 20px;
+}
+.hero-section
+{
+  background-color: yellow;
+  margin: 40px 0;
+  overflow: hidden;
+  border-radius: 30px;
+  width: 700px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  border-right: 50px solid black;
+  position: relative;
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-section::after
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 600px 300px 0 0;
+  border-color: transparent black transparent transparent;
+}
+.hero-section h2
+{
+  font-size: 40px;
+  text-align: center;
+  width: 350px;
+  margin: 10px 20px;
+  color: black;
+}
+.hero-section img
+{
+  margin: 0 auto;
+  height: 450px;
+  width: 400px;
+  transform: rotate(-120deg);
 }
