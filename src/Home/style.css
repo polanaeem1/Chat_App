@@ -1,1 +1,53 @@
-/* SignUp Style */
+
+.home-page{
+    background-color: black;
+    color: azure;
+    height: 700px;
+    width: 100%;
+  
+}
+.home-nav{
+    background-color: black;
+    height: 80px;
+    color:azure;
+    padding-left: 20px;
+    font-size: 60px;
+    font-family:serif;
+}
+.home-grid{
+    color: linear-gradient(to left, yellow, azure);
+}
+
+
+.home-c1{
+    padding-left: 80px;
+    font-size:40px;
+    font-family:serif;
+    display:inline-block;
+    width: 45%;
+}
+.home-c2{
+    display: inline-block;
+}
+.home-log,.home-sign{
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.home-btns{
+    display: block;
+    display: flex;
+    justify-content:center;
+    gap: 20px;
+
+}
+.home-log{
+    background-color: hsl(0, 3%, 13%);
+    color: #fff;
+}
+.home-sign{
+    background-color: #f7df1e;
+    color: #111;
+}
