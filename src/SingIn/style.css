@@ -13,8 +13,8 @@ body{
     background-color: #0E1000;
   }
   .header{
-    margin-bottom: 20px;
 
+ 
   }
   .logo-text {
     font-family: serif;
@@ -29,7 +29,7 @@ body{
     border-radius: 31px;
     width: 100%;
     max-width: 1440px;
-    height: 655px;
+    height: 550px;
   }
   .text-info{
     position: absolute;

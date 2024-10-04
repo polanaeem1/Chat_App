@@ -40,7 +40,50 @@ const SignIn = () => {
           </div>
         </div>
         {/* right side */}
-        
+        <div class="form-box login">
+          <form onSubmit={handleSubmit}>
+            <h2>Login</h2>
+            <div className="input-box">
+              <label htmlFor="username"></label>
+              <input
+                type="text"
+                value={username}
+                placeholder="UserName"
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-box">
+              <label htmlFor="password"></label>
+              <input
+                    type="password"
+                    value={password}
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  
+            </div>
+            
+         <div className="forgot-link">
+         <a href="/" >
+                  Forgot your password?
+                </a>
+         </div>
+
+                <button type="submit" className="login-btn">
+                  Login
+                </button>
+             
+              <p className="signup-link">
+                Doesn’t have an account?
+              </p>
+              <button className="signup-btn">
+                  Sign up <FaArrowRight />
+                </button>
+
+          </form>
+        </div>
       </div>
     </>
   );
