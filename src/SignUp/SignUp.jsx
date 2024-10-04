@@ -4,6 +4,8 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import thunder from "../images/thunderbolt.png";
 import "./style.css";
 import { useState } from "react";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { app } from "../firebase";
 
 function Logo() {
   return (
@@ -19,25 +21,20 @@ function Error({ msg }) {
 }
 
 function SignupSection(props) {
-  const [userName, setUserName] = useState("");
+  const auth = getAuth(app);
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
   const [userPass2, setUserPass2] = useState("");
   const [msg, setMsg] = useState("");
 
-  const [user, setUser] = useState({
-    userName: "",
-    userEmail: "",
-    userPass: "",
-  });
-  const handleSubmit = () => {
+  const [finalUserName, setFinalUserName] = useState("");
+  const [finalUserEmail, setFinalUserEmail] = useState("");
+  const [finalUserPass, setFinalUserPass] = useState("");
+  const handleUser = (e) => {
     const userReg = /^(?=.*?[A-Za-z]).{8,32}$/;
-    const emailReg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    const passwordReg =
-      /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
-    if (userName !== "") {
-      if (userReg.test(userName)) {
-        setUser({ ...user, userName: userName });
+    if (e !== "") {
+      if (userReg.test(e)) {
+        setFinalUserName(e);
       } else {
         setMsg("Username: between 6 and 16 characters, alpha only");
         return;
@@ -46,9 +43,12 @@ function SignupSection(props) {
       setMsg("Username is Empty!");
       return;
     }
-    if (userEmail !== "") {
-      if (userReg.test(userEmail)) {
-        setUser({ ...user, userEmail: userEmail });
+  };
+  const handleEmail = (e) => {
+    const emailReg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    if (e !== "") {
+      if (emailReg.test(e)) {
+        setFinalUserEmail(e);
       } else {
         setMsg("Invalid Email");
         return;
@@ -57,18 +57,29 @@ function SignupSection(props) {
       setMsg("Email is Empty!");
       return;
     }
+  };
+  const handlePass = () => {
+    const passwordReg =
+      /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
     if (userPass === userPass2) {
       if (passwordReg.test(userPass)) {
-        setUser({ ...user, userPass: userPass });
+        setFinalUserPass(userPass);
       } else {
         setMsg(
           "Password must contain one digit from 1 to 9, one lowercase letter, one uppercase letter, one special character, no space, and it must be 8-16 characters long."
         );
-        return;
       }
     } else {
       setMsg("Password doesn't match");
       return;
+    }
+  };
+  const handleSubmit = () => {
+    if (finalUserName !== "" && finalUserEmail !== "" && finalUserPass !== "") {
+      setMsg("");
+      createUserWithEmailAndPassword(auth, finalUserEmail, finalUserPass);
+    } else {
+      setMsg("Please fill all the fields");
     }
   };
   return (
@@ -79,8 +90,8 @@ function SignupSection(props) {
         type="text"
         name="uName"
         placeholder="Username"
-        onChange={(e) => {
-          setUserName(e.target.value);
+        onBlur={(e) => {
+          handleUser(e.target.value);
         }}
       />
       <br />
@@ -89,8 +100,8 @@ function SignupSection(props) {
         type="email"
         name="uEmail"
         placeholder="Email"
-        onChange={(e) => {
-          setUserEmail(e.target.value);
+        onBlur={(e) => {
+          handleEmail(e.target.value);
         }}
       />
       <br />
@@ -102,6 +113,7 @@ function SignupSection(props) {
         onChange={(e) => {
           setUserPass(e.target.value);
         }}
+        onBlur={() => handlePass()}
       />
       <br />
       <input
@@ -112,6 +124,7 @@ function SignupSection(props) {
         onChange={(e) => {
           setUserPass2(e.target.value);
         }}
+        onBlur={() => handlePass()}
       />
       <Error msg={msg} />
       <input
