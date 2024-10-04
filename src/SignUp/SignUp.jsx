@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import thunder from "../images/thunderbolt.png";
+import thunder from "../images/image.png";
 import "./style.css";
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
