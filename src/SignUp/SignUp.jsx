@@ -7,9 +7,9 @@ import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../firebase";
 
-function Logo() {
+export function Logo() {
   return (
-    <div className="logo">
+    <div className="SignUp-logo">
       <FontAwesomeIcon icon={faBolt} size="3x" color="yellow" />
       <h1>Passenger</h1>
     </div>
@@ -159,13 +159,13 @@ function Herosection() {
 
 function SignUp() {
   return (
-    <>
+    <div className="signup-container">
       <Logo />
       <div className="signup-content">
         <Herosection />
         <SignupSection title="Sign Up" />
       </div>
-    </>
+    </div>
   );
 }
 
