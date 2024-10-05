@@ -6,7 +6,7 @@ import "./style.css";
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Logo() {
   return (
@@ -22,6 +22,7 @@ export function Error({ msg }) {
 }
 
 function SignupSection(props) {
+  const navigate=useNavigate();
   const auth = getAuth(app);
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
@@ -78,7 +79,11 @@ function SignupSection(props) {
   const handleSubmit = () => {
     if (finalUserName !== "" && finalUserEmail !== "" && finalUserPass !== "") {
       setMsg("");
-      createUserWithEmailAndPassword(auth, finalUserEmail, finalUserPass);
+      createUserWithEmailAndPassword(auth, finalUserEmail, finalUserPass).then(()=>{
+        navigate("/SignIn")
+      }).catch(()=>{
+        setMsg("Email is already used")
+      });
     } else {
       setMsg("Please fill all the fields");
     }
