@@ -1,4 +1,3 @@
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +6,7 @@ import "./style.css";
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../firebase";
+import { Link } from "react-router-dom";
 
 export function Logo() {
   return (
@@ -17,7 +17,7 @@ export function Logo() {
   );
 }
 
-function Error({ msg }) {
+export function Error({ msg }) {
   return <p className="error">{msg}</p>;
 }
 
@@ -138,12 +138,12 @@ function SignupSection(props) {
       />
       <div className="login">
         <p className="not-guest">Already Have An Account?</p>
-        <div className="login-container">
-          <a className="login-href" href="#">
+        <Link to="/SignIn" className="login-container">
+          <div className=" login-href">
             Login
-          </a>
-          <FontAwesomeIcon icon={faArrowRight} size="1x" color="white" />
-        </div>
+            <FontAwesomeIcon icon={faArrowRight} size="1x" color="white" />
+          </div>
+        </Link>
       </div>
     </div>
   );
@@ -158,14 +158,15 @@ function Herosection() {
   );
 }
 
-
 function SignUp() {
   return (
-    <div className="signup-container">
-      <Logo />
-      <div className="signup-content">
-        <Herosection />
-        <SignupSection title="Sign Up" />
+    <div className="signup-body">
+      <div className="signup-container">
+        <Logo />
+        <div className="signup-content">
+          <Herosection />
+          <SignupSection title="Sign Up" />
+        </div>
       </div>
     </div>
   );

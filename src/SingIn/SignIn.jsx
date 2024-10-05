@@ -3,13 +3,29 @@ import React, { useState } from "react";
 import image from "../images/image.png";
 import "./style.css";
 import { FaArrowRight } from "react-icons/fa";
-
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Error } from "../SignUp/SignUp";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "../firebase";
 
 const SignIn = () => {
-  const [username, setUsername] = useState("");
+  const navigate=useNavigate();
+  const auth = getAuth(app);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = (e) => {
+  const [msg, setMsg] = useState("");
+  const handleLogin = (e) => {
     e.preventDefault();
+    if (email !== "" && password !== "") {
+      setMsg("");
+      signInWithEmailAndPassword(auth, email, password).then(()=>{
+        navigate("/")
+      }).catch((e) => {
+        setMsg("Email or Password is wrong")
+      });
+    } else {
+      setMsg("Please fill all the fields");
+    }
   };
 
   return (
@@ -34,54 +50,54 @@ const SignIn = () => {
         </div>
 
         <div className="Container">
-  <div className="text-info left-side">
-    <h2 className="cta-text">Start connecting in seconds!</h2>
-    <div className="img-text">
-      <img src={image} alt="" />
-    </div>
-  </div>
+          <div className="text-info left-side">
+            <h2 className="cta-text">Start connecting in seconds!</h2>
+            <div className="img-text">
+              <img src={image} alt="" />
+            </div>
+          </div>
 
-  <div className="form-box login">
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <div className="input-box">
-        <label htmlFor="username"></label>
-        <input
-          type="text"
-          value={username}
-          placeholder="UserName"
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </div>
-      <div className="input-box">
-        <label htmlFor="password"></label>
-        <input
-          type="password"
-          value={password}
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
+          <div className="form-box login">
+            <form>
+              <h2>Login</h2>
+              <div className="input-box">
+                <label htmlFor="username"></label>
+                <input
+                  type="text"
+                  value={email}
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="password"></label>
+                <input
+                  type="password"
+                  value={password}
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <Error msg={msg} />
+              <div className="forgot-link">
+                <a href="/">Forgot your password?</a>
+              </div>
 
+              <button type="submit" className="login-btn" onClick={handleLogin}>
+                Login
+              </button>
 
-      <div className="forgot-link">
-        <a href="/">Forgot your password?</a>
-      </div>
-
-      <button type="submit" className="login-btn">
-        Login
-      </button>
-
-      <p className="signup-link">Doesn’t have an account?</p>
-      <button className="signup-btn">
-        Sign up <FaArrowRight />
-      </button>
-    </form>
-  </div>
-</div>
-
+              <p className="signup-link">Doesn’t have an account?</p>
+              <Link to="/SignUp">
+                <button className="signup-btn">
+                  Sign up <FaArrowRight />
+                </button>
+              </Link>
+            </form>
+          </div>
+        </div>
       </div>
     </>
   );
