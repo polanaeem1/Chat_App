@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import image from "../images/image.png";
 import "./style.css";
 import { FaArrowRight } from "react-icons/fa";
-import { Logo } from "../SignUp/SignUp";
 
 
 const SignIn = () => {
@@ -35,7 +34,6 @@ const SignIn = () => {
         </div>
 
         <div className="Container">
-  {/* left side */}
   <div className="text-info left-side">
     <h2 className="cta-text">Start connecting in seconds!</h2>
     <div className="img-text">
@@ -43,7 +41,6 @@ const SignIn = () => {
     </div>
   </div>
 
-  {/* right side */}
   <div className="form-box login">
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
