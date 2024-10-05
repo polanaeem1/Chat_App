@@ -6,7 +6,7 @@ body{
     margin: 40px auto;
     color: azure;
     width: 80%;
-    background-image: url('../images/download.svg');
+    background-image: url('../images/light.png');
     background-position: 200px,bottom;
     background-repeat: no-repeat;
     background-size: contain;
@@ -47,7 +47,7 @@ body{
     margin-right: 20px;
 }
 .home-log{
-    background-color: black;
+    background-color: #0C0114;
     color: white;
 }
 .home-sign{
