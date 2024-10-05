@@ -6,7 +6,7 @@ body{
     margin: 40px auto;
     color: azure;
     width: 80%;
-    background-image: url('../images/light.png');
+    background-image: url('../images/download.svg');
     background-position: 200px,bottom;
     background-repeat: no-repeat;
     background-size: contain;
@@ -54,3 +54,41 @@ body{
     background-color: yellow;
     color:  #111;
 }
+
+/* Mobile */
+
+@media (max-width: 767px) {
+    .home-page{
+        background-position: center;
+    }
+    .section-container
+    {
+        flex-direction: column;
+    }
+    .home-c1
+    {
+        margin-bottom: 30px;
+    }
+  }
+  
+  /* Small Screens */
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .section-container
+    {
+        flex-direction: column;
+    }
+    .home-page{
+        background-position: center;
+    }
+  }
+  @media (min-width: 991px) and (max-width: 1199px)
+  {
+    .section-container
+    {
+        flex-direction: column;
+    }
+    .home-page{
+        background-position: center;
+    }
+  }
