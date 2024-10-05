@@ -1,53 +1,56 @@
-
-.home-page{
+body{
     background-color: black;
+}
+.home-page{
+    height: 90vh;
+    margin: 40px auto;
     color: azure;
-    height: 700px;
-    width: 100%;
-  
+    width: 80%;
+    background-image: url('../images/download.svg');
+    background-position: 200px,bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .home-nav{
-    background-color: black;
-    height: 80px;
     color:azure;
-    padding-left: 20px;
     font-size: 60px;
     font-family:serif;
 }
 .home-grid{
-    color: linear-gradient(to left, yellow, azure);
+    color: rgb(237, 237, 166) ;
 }
-
-
+.section-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+}
 .home-c1{
-    padding-left: 80px;
-    font-size:40px;
+    font-size:60px;
+    font-weight: bold;
     font-family:serif;
-    display:inline-block;
-    width: 45%;
 }
-.home-c2{
-    display: inline-block;
+.home-c2 p{
+    font-size: 20px;
+    line-height: 1.8;
+    color: white;
 }
 .home-log,.home-sign{
     text-decoration: none;
-    padding: 10px;
+    padding: 7px 37px;
     border-radius: 15px;
     font-size: 16px;
     font-weight: bold;
-}
-.home-btns{
-    display: block;
-    display: flex;
-    justify-content:center;
-    gap: 20px;
-
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
 }
 .home-log{
-    background-color: hsl(0, 3%, 13%);
-    color: #fff;
+    background-color: black;
+    color: white;
 }
 .home-sign{
-    background-color: #f7df1e;
-    color: #111;
+    background-color: yellow;
+    color:  #111;
 }
