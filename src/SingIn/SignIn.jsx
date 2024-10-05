@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import image from "../images/image.png";
 import "./style.css";
 import { FaArrowRight } from "react-icons/fa";
+import { Logo } from "../SignUp/SignUp";
 
 
 const SignIn = () => {
@@ -66,6 +67,7 @@ const SignIn = () => {
           required
         />
       </div>
+
 
       <div className="forgot-link">
         <a href="/">Forgot your password?</a>

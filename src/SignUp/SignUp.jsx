@@ -1,20 +1,21 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faBolt } from "@fortawesome/free-solid-svg-icons";
-// import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-// import thunder from "../images/thunderbolt.png";
-// import "./style.css";
-// import { useState } from "react";
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import { app } from "../firebase";
 
-// function Logo() {
-//   return (
-//     <div className="logo">
-//       <FontAwesomeIcon icon={faBolt} size="3x" color="yellow" />
-//       <h1>Passenger</h1>
-//     </div>
-//   );
-// }
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBolt } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import thunder from "../images/image.png";
+import "./style.css";
+import { useState } from "react";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { app } from "../firebase";
+
+export function Logo() {
+  return (
+    <div className="SignUp-logo">
+      <FontAwesomeIcon icon={faBolt} size="3x" color="yellow" />
+      <h1>Passenger</h1>
+    </div>
+  );
+}
 
 // function Error({ msg }) {
 //   return <p className="error">{msg}</p>;
@@ -157,16 +158,17 @@
 //   );
 // }
 
-// function SignUp() {
-//   return (
-//     <>
-//       <Logo />
-//       <div className="signup-content">
-//         <Herosection />
-//         <SignupSection title="Sign Up" />
-//       </div>
-//     </>
-//   );
-// }
+
+function SignUp() {
+  return (
+    <div className="signup-container">
+      <Logo />
+      <div className="signup-content">
+        <Herosection />
+        <SignupSection title="Sign Up" />
+      </div>
+    </div>
+  );
+}
 
 // export default SignUp;

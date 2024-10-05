@@ -1,11 +1,11 @@
 /* SignUp Style */
 body
 {
-  background-color: black;
+  background-color: black!important;
 }
-.App {
+.signup-container {
   width: 80%;
-  margin: 30px auto;
+  margin: 30px auto 0;
 }
 a{
   text-decoration: none;
@@ -26,12 +26,12 @@ h1
   padding: 100px 0;
   width: 300px;
 }
-.logo
+.SignUp-logo
 {
   display: flex;
   align-items: center;
 }
-.logo h1
+.SignUp-logo h1
 {
   color: white;
   font-size: 35px;
@@ -118,9 +118,9 @@ h1
 .hero-section img
 {
   margin: 0 auto;
-  height: 450px;
-  width: 400px;
-  transform: rotate(-120deg);
+  height: 350px;
+  width: 650px;
+
 }
 .error{
   color: red;
