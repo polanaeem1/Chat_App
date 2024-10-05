@@ -3,6 +3,7 @@ import "./App.css";
 import SignUp from "./SignUp/SignUp";
 import SignIn from "./SingIn/SignIn";
 import Home from "./Home/Home";
+// import {socket} from './socketIO'
 
 function App() {
   return (

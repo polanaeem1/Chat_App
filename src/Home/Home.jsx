@@ -2,6 +2,7 @@ import React from 'react'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBolt } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router';
 
 export function Logo() {
   return (
@@ -14,6 +15,7 @@ export function Logo() {
 
 
 const Home = () => {
+  const navigate=useNavigate();
   return (
     <div className='home-page'>
       <nav className='home-nav'>
@@ -28,8 +30,12 @@ const Home = () => {
         </p>
         <br />
         <div className='home-btns'>
-        <button className='home-log'>Log in   →</button>
-        <button className='home-sign'>Sign up   →</button>
+        <button className='home-log' onClick={()=>{
+          navigate("/SignIn")
+        }}>Log in   →</button>
+        <button className='home-sign' onClick={()=>{
+          navigate("/SignUp")
+        }}>Sign up   →</button>
         </div>
       </div>
       </div>
