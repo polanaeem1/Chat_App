@@ -1,94 +1,91 @@
-body{
-    background-color: black;
+.home-page-container {
+  background-color: black;
+  height: 100vh;
+  padding-top: 40px;
 }
-.home-page{
-    height: 90vh;
-    margin: 40px auto;
-    color: azure;
-    width: 80%;
-    background-image: url('../images/download.svg');
-    background-position: 200px,bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
+.home-page {
+  height: 90vh;
+  margin: auto;
+  color: azure;
+  width: 80%;
+  background-image: url("../images/download.svg");
+  background-position: 200px, bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-.home-nav{
-    color:azure;
-    font-size: 60px;
-    font-family:serif;
+.home-nav {
+  color: azure;
+  font-size: 60px;
+  font-family: serif;
 }
-.home-grid{
-    color: rgb(237, 237, 166) ;
+.home-grid {
+  color: rgb(237, 237, 166);
 }
-.section-container
-{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px;
+.section-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
 }
-.home-c1{
-    font-size:60px;
-    font-weight: bold;
-    font-family:serif;
+.home-c1 {
+  font-size: 60px;
+  font-weight: bold;
+  font-family: serif;
 }
-.home-c2 p{
-    font-size: 20px;
-    line-height: 1.8;
-    color: white;
+.home-c2 p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: white;
 }
-.home-log,.home-sign{
-    text-decoration: none;
-    padding: 7px 37px;
-    border-radius: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    margin-right: 20px;
+.home-log,
+.home-sign {
+  text-decoration: none;
+  padding: 7px 37px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
 }
-.home-log{
-    background-color: #0C0114;
-    color: white;
+.home-log {
+  background-color: #0c0114;
+  color: white;
 }
-.home-sign{
-    background-color: yellow;
-    color:  #111;
+.home-sign {
+  background-color: yellow;
+  color: #111;
 }
 
 /* Mobile */
 
 @media (max-width: 767px) {
-    .home-page{
-        background-position: center;
-    }
-    .section-container
-    {
-        flex-direction: column;
-    }
-    .home-c1
-    {
-        margin-bottom: 30px;
-    }
+  .home-page {
+    background-position: center;
   }
-  
-  /* Small Screens */
-  
-  @media (min-width: 768px) and (max-width: 991px) {
-    .section-container
-    {
-        flex-direction: column;
-    }
-    .home-page{
-        background-position: center;
-    }
+  .section-container {
+    flex-direction: column;
   }
-  @media (min-width: 991px) and (max-width: 1199px)
-  {
-    .section-container
-    {
-        flex-direction: column;
-    }
-    .home-page{
-        background-position: center;
-    }
+  .home-c1 {
+    margin-bottom: 30px;
   }
+}
+
+/* Small Screens */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .section-container {
+    flex-direction: column;
+  }
+  .home-page {
+    background-position: center;
+  }
+}
+@media (min-width: 991px) and (max-width: 1199px) {
+  .section-container {
+    flex-direction: column;
+  }
+  .home-page {
+    background-position: center;
+  }
+}
