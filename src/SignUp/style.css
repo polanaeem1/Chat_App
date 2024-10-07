@@ -1,4 +1,10 @@
 /* SignUp Style */
+html, body {
+  overflow: hidden;
+  height: 100%; /* Ensure it takes the full viewport height */
+  margin: 0;
+  padding: 0;
+}
 .signup-body {
   background-color: black !important;
   height: 100vh;
@@ -47,7 +53,6 @@ h1 {
   background-color: transparent;
   font-size: 17px;
   margin-bottom: 15px;
-  transition: 0.3s;
 }
 
 .signup-button:focus {
@@ -65,7 +70,7 @@ h1 {
 }
 .not-guest {
   color: #eee;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 .login-container {
   display: flex;
