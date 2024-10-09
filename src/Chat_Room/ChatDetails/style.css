@@ -1,0 +1,29 @@
+.chat-details-container{
+    background-color: black;
+    color: azure;
+}
+.c-d-photo{
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.c-d-contactname{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px;
+}
+.c-d-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon{
+    margin-right: 30px;
+}
+
+
+
