@@ -20,7 +20,7 @@
   max-width: 1096px; 
   height: auto;
   margin: 0 auto; 
-  padding-bottom: 2px;
+  padding-bottom: 10px;
 }
 
 .logo {
@@ -74,6 +74,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
+  padding-bottom: 20px;
   z-index: 0;
 }
 
