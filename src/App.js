@@ -10,8 +10,8 @@ import ChatsContainer from "./Chat_Room/ChatsContainer/ChatsContainer";
 function App() {
   return (
     <div className="App">
-      {/* <ChatRoom/> */}
-      <ChatsContainer/>
+      <ChatRoom/>
+      {/* <ChatsContainer/> */}
       {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/SignUp" element={<SignUp />} />
