@@ -10,7 +10,7 @@ import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 const ChatsContainer = () => {
   const [usersData, setUsersData] = useState([]);
   useEffect(() => {
-    const getData = async (uid) => {
+    const getData = async () => {
       const docRef = collection(db, "users");
       const docSnap = await getDocs(docRef);
       const usersData = [];
@@ -20,7 +20,11 @@ const ChatsContainer = () => {
       return usersData;
     };
     getData().then((data) => {
-      setUsersData(data);
+      setUsersData(
+        data.filter((user) => {
+          return user.id !== auth.currentUser.uid;
+        })
+      );
     });
   }, []);
 

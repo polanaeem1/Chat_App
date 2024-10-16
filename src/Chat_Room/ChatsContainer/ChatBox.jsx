@@ -22,34 +22,50 @@ const ChatBox = ({ name, id }) => {
   const user = useSelector((state) => state.user);
 
   const handleChat = async () => {
-    dispatch(addUser({ name, id }));
     const chatRef = collection(db, "chats");
     const userChatsRef = collection(db, "userChats");
-    try {
-      const newChatRef = doc(chatRef);
-      await setDoc(newChatRef, {
-        createdAt: serverTimestamp(),
-        messages: [],
-      });
+    if (id === "") {
+      console.log("hello");
+    } else {
+      try {
+        const newChatRef = doc(chatRef);
+        console.log(newChatRef);
+        const chatId = newChatRef.id;
+        const docRef = doc(db, "userChats", auth.currentUser.uid);
+        const docSnap = await getDoc(docRef);
 
-      await updateDoc(doc(userChatsRef, auth.currentUser.uid), {
-        chats: arrayUnion({
-          chatId: newChatRef.id,
-          lastMessage: "",
-          receiverId: user.userChat.id,
-          updatedAt: Date.now(),
-        }),
-      });
-      await updateDoc(doc(userChatsRef, user.userChat.id), {
-        chats: arrayUnion({
-          chatId: newChatRef.id,
-          lastMessage: "",
-          receiverId: auth.currentUser.uid,
-          updatedAt: Date.now(),
-        }),
-      });
-    } catch (error) {
-      console.log(error);
+        for (let index = 0; index < docSnap.data().chats.length; index++) {
+          if (docSnap.data().chats[index].receiverId === id) {
+            const chatId = docSnap.data().chats[index].chatId;
+            dispatch(addUser({ name, id, chatId }));
+            return;
+          }
+        }
+        dispatch(addUser({ name, id, chatId }));
+        await setDoc(newChatRef, {
+          createdAt: serverTimestamp(),
+          messages: [],
+        });
+
+        await updateDoc(doc(userChatsRef, auth.currentUser.uid), {
+          chats: arrayUnion({
+            chatId: newChatRef.id,
+            lastMessage: "",
+            receiverId: id,
+            updatedAt: Date.now(),
+          }),
+        });
+        await updateDoc(doc(userChatsRef, id), {
+          chats: arrayUnion({
+            chatId: newChatRef.id,
+            lastMessage: "",
+            receiverId: auth.currentUser.uid,
+            updatedAt: Date.now(),
+          }),
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   return (
@@ -59,14 +75,14 @@ const ChatBox = ({ name, id }) => {
       </div>
       <div className="chat-info">
         <div className="chat-name">{name}</div>
-        <div className="chat-bio">{chatBio}</div>
+        {/* <div className="chat-bio">{chatBio}</div> */}
       </div>
-      <div className="chat-times">
+      {/* <div className="chat-times">
         <div className="message-time">{messageTime}</div>
         <div className="message-num">
           <div className="num">{messageNum}</div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
