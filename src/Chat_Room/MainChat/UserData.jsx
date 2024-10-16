@@ -2,12 +2,15 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { FiVideo } from "react-icons/fi";
 import { VscCallOutgoing } from "react-icons/vsc";
+import { useSelector } from "react-redux";
 
 const UserData = () => {
+  const user = useSelector((state) => state.user);
+  
   return (
     <div className="userData-container">
       <div className="left-side-userData">
-        <h2>Ahmed Mohammed</h2>
+        <h2>{user.userChat.name}</h2>
         <p>online 10m ago</p>
       </div>
       <div className="right-side">

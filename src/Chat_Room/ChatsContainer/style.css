@@ -112,6 +112,7 @@ header h2 {
 
 /* Chat Box */
 .chat-box {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
