@@ -9,6 +9,9 @@ import { useUserStore } from "./userStore";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
+import { Provider } from "react-redux";
+import { store } from "./store";
+// import {socket} from './socketIO'
 
 function App() {
 const {currentUser,isLoading,fetchUserInfo} =useUserStore()
@@ -34,6 +37,17 @@ if(isLoading) return <div className="loading">Loading......</div>
         <Route path="/ChatRoom" element={<ChatRoom/>} />
       </Routes> 
     </div>
+    <Provider store={store}>
+      <div className="App">
+        <ChatRoom />
+        {/* <ChatsContainer/> */}
+        {/* <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/SignIn" element={<SignIn />} />
+      </Routes> */}
+      </div>
+    </Provider>
   );
 }
 
