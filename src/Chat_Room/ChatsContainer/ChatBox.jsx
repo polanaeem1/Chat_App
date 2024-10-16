@@ -4,8 +4,6 @@ import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../../slices/userSlice";
 
-const ChatBox = (props) => {
-  const [chatName, setChatName] = useState("Barone LLC.");
 const ChatBox = ({ name, id }) => {
   const [chatBio, setChatBio] = useState("Hello what’s up");
   const [messageTime, setMessageTime] = useState("5m");
@@ -13,7 +11,7 @@ const ChatBox = ({ name, id }) => {
   const dispatch = useDispatch();
 
   const handleChat = () => {
-    dispatch(addUser({name, id}));
+    dispatch(addUser({ name, id }));
   };
   return (
     <div className="chat-box" onClick={handleChat}>
