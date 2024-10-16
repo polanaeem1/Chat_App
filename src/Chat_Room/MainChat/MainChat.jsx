@@ -8,7 +8,7 @@ const MainChat = () => {
     <div className="main-chat-container">
       <UserData />
       <ChatHero />
-      <CreateMsg />
+      <CreateMsg /> 
     </div>
   );
 };

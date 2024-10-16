@@ -14,16 +14,32 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
+
+
+
   const handleLogin = (e) => {
     e.preventDefault();
+    
     if (email !== "" && password !== "") {
-      setMsg("");
-      signInWithEmailAndPassword(auth, email, password).then(()=>{
-        navigate("/")
-      }).catch((e) => {
-        setMsg("Email or Password is wrong")
-      });
+      setMsg("");  
+      
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          navigate("/ChatRoom");  
+        })
+        .catch((error) => {
+          console.error("Login error:", error);
+          
+          if (error.code === "auth/wrong-password" || error.code === "auth/user-not-found") {
+            setMsg("Email or Password is incorrect");
+          } else if (error.code === "auth/too-many-requests") {
+            setMsg("Too many failed attempts. Please try again later.");
+          } else {
+            setMsg("An error occurred: " + error.message);
+          }
+        });
     } else {
+      // Inform the user that fields are empty
       setMsg("Please fill all the fields");
     }
   };

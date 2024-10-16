@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import UserImg from '../../images/user.png';
 import './style.css';
 
-const ChatBox = () => {
+const ChatBox = (props) => {
   const [chatName, setChatName] = useState("Barone LLC.");
   const [chatBio, setChatBio] = useState("Hello what’s up");
   const [messageTime, setMessageTime] = useState("5m");
