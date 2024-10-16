@@ -6,7 +6,6 @@ import ChatBox from "./ChatBox";
 import "./style.css";
 import { auth, db } from "../../firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth";
 
 const ChatsContainer = () => {
   const [usersData, setUsersData] = useState([]);
