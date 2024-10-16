@@ -4,6 +4,10 @@ import { MdAttachFile, MdOutlineEmojiEmotions } from "react-icons/md";
 import { TiMicrophoneOutline } from "react-icons/ti";
 
 const CreateMsg = () => {
+
+
+
+
   return (
     <div className="createMsg-container">
       <div className="createMsg-left">
@@ -15,7 +19,7 @@ const CreateMsg = () => {
       </div>
       <div className="createMsg-right">
         <MdAttachFile color="#808074" size={25} />
-        <LuSendHorizonal color="#808074" size={25} />
+        <LuSendHorizonal color="#808074" size={25}   />
       </div>
     </div>
   );

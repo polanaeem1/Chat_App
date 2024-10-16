@@ -1,6 +1,7 @@
 import React from "react";
 
 const Message = () => {
+  
   return (
     <div className="message-container">
       <div className="photo">
