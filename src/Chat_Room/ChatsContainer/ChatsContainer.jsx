@@ -27,21 +27,33 @@ const ChatsContainer = () => {
       );
     });
   }, []);
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <div className="main">
       <div className="chats-container">
         <header>
           <h2>Messages</h2>
-          <ChatSearch />
+          <ChatSearch
+            setSearchQuery={setSearchQuery}
+            searchQuery={searchQuery}
+          />
           <ChatType />
         </header>
         <div className="chat-list">
-          {usersData.map((user) => {
-            return (
-              <ChatBox name={user.finalUserName} key={user.id} id={user.id} />
-            );
-          })}
+          {usersData
+            .filter((user) => {
+              if (searchQuery === "") {
+                return true;
+              } else {
+                return user.finalUserName.toLowerCase() === searchQuery.toLowerCase();
+              }
+            })
+            .map((user) => {
+              return (
+                <ChatBox name={user.finalUserName} key={user.id} id={user.id} />
+              );
+            })}
         </div>
       </div>
     </div>
