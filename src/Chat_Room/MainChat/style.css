@@ -98,11 +98,20 @@
   gap: 20px;
 }
 
-.message-container {
+.message-container-sender {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-items: center;
   gap: 15px;
+}
+.message-container-receiver {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 15px;
+  flex-direction: row-reverse;
 }
 .photo-img {
   width: 79px;
