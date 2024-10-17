@@ -26,10 +26,6 @@
   background-color: #1a1a1a;
 }
 
-.chat-list::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 10px;
-}
 
 .chat-list:hover::-webkit-scrollbar-thumb {
   background-color: #808074;
@@ -142,10 +138,11 @@ header h2 {
 
 .chat-name {
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #e9e7e7;
-  margin-bottom: 10px;
+  white-space: nowrap;
+  margin-right: 45px;
 }
 
 .chat-bio {
@@ -189,63 +186,62 @@ header h2 {
   font-weight: 500;
   color: #e9e7e7;
 }
-
-
-/* Add User */
-.addUser{
-  width: max-content;
-  height:max-content ;
-  padding: 30px;
-  background-color: rgba(44, 51, 65, 0.801) ;
-  border-radius: 10px;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  form{
-    display: flex;
-    gap:20px;
-    input{
-    padding: 20px;
-     border-radius: 10px;
-     border: none;
-     outline: none;
-    }
-    button{
-      padding: 20px;
-      border-radius:10px ;
-      background-color: #0c0114 ;
-      color:white;
-      border: none;
-      cursor: pointer;
-    }
+@media (max-width: 1340px) {
+  
+  .chat-box{
+  width: 230px;
+  height: 75px;
+  
   }
-  .user{
-    margin-top: 50px;
-    display: flex;
-    align-items:center ;
-    justify-content: space-between;
-    .detial{
-      display:flex ;
-      align-items: center;
-      gap:20px;
-     img{
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      object-fit: cover;
-     }
-    
-    }
-    button{
-      padding: 20px;
-      border-radius:10px ;
-      background-color: #0c0114 ;
-      color:white;
-      border: none;
-      cursor: pointer
-     }
+  .chat-name{
+    font-size: 15px;
+   white-space: nowrap;
+  }
+  .Search-Box{
+    width: 240px;
   }
 }
+
+/* Small Screens */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .chat-box{
+    width: 200px;
+    height: 65px;
+    
+    }
+    .chat-name{
+      font-size: 12px;
+     white-space: nowrap;
+    }
+    .Search-Box{
+      width: 200px;
+    }
+    .chat-img img{
+      width: 55px;
+      height: 55px;
+      border-radius: 10px 0 0 10px;
+    }
+}
+
+@media (max-width: 767px) {
+  .chat-box{
+  
+    width: 150px;
+    height: 55px;
+    
+    }
+    .chat-name{
+      font-size: 6px;
+     white-space: nowrap;
+    }
+    .Search-Box{
+      width: 200px;
+    }
+    .chat-img img{
+      width: 45px;
+      height: 45px;
+      border-radius: 10px 0 0 10px;
+    }
+}
+
