@@ -23,7 +23,29 @@
 }
 .icon{
     margin-right: 30px;
+    
 }
-
-
-
+.see{
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.link-i,.photo-i,.file-i{
+    padding-left: 10px;
+    padding-right: 5px;
+}
+.allPhotos{
+    padding: 5px;
+}
+.photo1{
+    border-radius: 15px;
+}
+a{
+    color: azure;
+}
+.photos,.files,.links{
+    font-size: 24px;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
