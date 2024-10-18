@@ -1,3 +1,9 @@
 *{
     box-sizing: border-box;
 }
+.loading{
+  padding: 50px;
+  font-size:36px;
+  border-radius: 10px;
+  background-color: black;
+}
