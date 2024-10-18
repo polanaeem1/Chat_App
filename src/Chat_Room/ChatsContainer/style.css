@@ -26,11 +26,6 @@
   background-color: #1a1a1a;
 }
 
-.chat-list::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 10px;
-}
-
 .chat-list:hover::-webkit-scrollbar-thumb {
   background-color: #808074;
 }
@@ -84,6 +79,7 @@ header h2 {
   width: 18px;
   height: 18px;
   opacity: 0.7;
+  cursor: pointer;
 }
 
 /* Chat Type styling */
@@ -112,6 +108,7 @@ header h2 {
 
 /* Chat Box */
 .chat-box {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -141,10 +138,11 @@ header h2 {
 
 .chat-name {
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #e9e7e7;
-  margin-bottom: 10px;
+  white-space: nowrap;
+  margin-right: 45px;
 }
 
 .chat-bio {
@@ -187,4 +185,57 @@ header h2 {
   font-size: 16px;
   font-weight: 500;
   color: #e9e7e7;
+}
+@media (max-width: 1340px) {
+  .chat-box {
+    width: 230px;
+    height: 75px;
+  }
+  .chat-name {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .Search-Box {
+    width: 240px;
+  }
+}
+
+/* Small Screens */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .chat-box {
+    width: 200px;
+    height: 65px;
+  }
+  .chat-name {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .Search-Box {
+    width: 200px;
+  }
+  .chat-img img {
+    width: 55px;
+    height: 55px;
+    border-radius: 10px 0 0 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .chat-box {
+    width: 150px;
+    height: 55px;
+  }
+  .chat-name {
+    font-size: 6px;
+    white-space: nowrap;
+  }
+  .Search-Box {
+    width: 200px;
+  }
+  .chat-img img {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px 0 0 10px;
+  }
 }

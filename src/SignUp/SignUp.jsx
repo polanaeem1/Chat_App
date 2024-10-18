@@ -5,9 +5,9 @@ import thunder from "../images/image.png";
 import "./style.css";
 import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "../firebase";
+import { app,db } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
-
+import { setDoc,doc } from "firebase/firestore";
 export function Logo() {
   return (
     <div className="SignUp-logo">
@@ -76,18 +76,53 @@ function SignupSection(props) {
       return;
     }
   };
-  const handleSubmit = () => {
+
+
+
+  const handleSubmit = async () => {
     if (finalUserName !== "" && finalUserEmail !== "" && finalUserPass !== "") {
-      setMsg("");
-      createUserWithEmailAndPassword(auth, finalUserEmail, finalUserPass).then(()=>{
-        navigate("/SignIn")
-      }).catch(()=>{
-        setMsg("Email is already used")
-      });
+      setMsg("");  
+  
+      try {
+        // Create user in Firebase Authentication
+        const res = await createUserWithEmailAndPassword(auth, finalUserEmail, finalUserPass);
+  
+        // Store user details in Firestore
+        await setDoc(doc(db, "users", res.user.uid), {
+          finalUserName,
+          finalUserEmail,
+          id: res.user.uid,
+          blocked: []
+        });
+  
+        await setDoc(doc(db, "userChats", res.user.uid), {
+          chats: []
+        });
+  
+        navigate("/SignIn");
+  
+      } catch (error) {
+        if (error.code === "auth/email-already-in-use") {
+          setMsg("Email is already in use");
+        } else {
+          setMsg("An error occurred: " + error.message);
+        }
+      }
     } else {
-      setMsg("Please fill all the fields");
+      setMsg("Please fill all fields");
     }
   };
+  
+      
+      
+
+
+
+
+  
+
+
+
   return (
     <div className="SignupSection">
       <h1 className="signup-title">{props.title}</h1>
