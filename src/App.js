@@ -13,10 +13,10 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <Routes>
-          {/* <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/SignIn" element={<SignIn />} /> */}
-          <Route path="/" element={<ChatRoom />} />
+          <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/ChatRoom" element={<ChatRoom />} />
         </Routes>
       </div>
     </Provider>
