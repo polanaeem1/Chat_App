@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import profile from 'C:/Users/Infotech/chat app/Chat_App/src/images/Ellipse 2.png'
+import profile from '../../images/Ellipse 2.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { faThumbTack } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,7 @@ import { faImages } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import {faLink} from "@fortawesome/free-solid-svg-icons";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import photo from "C:/Users/Infotech/chat app/Chat_App/src/images/profile p.png"
+import photo from "../../images/profile p.png"
 
 
 const files = [

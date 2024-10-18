@@ -1,6 +1,8 @@
 .chat-details-container{
     background-color: black;
     color: azure;
+    overflow: hidden;
+    height: 100vh;
 }
 .c-d-photo{
     border-radius: 50%;

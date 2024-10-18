@@ -1,16 +1,17 @@
-.chatroom-container{
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
+.chatroom-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  background-color: #000;
 }
-.sidebar-container{
-    grid-column: 1;
+.sidebar-container {
+  grid-column: 1;
 }
-.main{
-    grid-column: span 3;
+.main {
+  grid-column: span 3;
 }
-.main-chat-container{
-    grid-column: span 5;
+.main-chat-container {
+  grid-column: span 5;
 }
-.chat-details-container{
-    grid-column: span 3;
+.chat-details-container {
+  grid-column: span 3;
 }
