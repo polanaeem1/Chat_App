@@ -49,3 +49,78 @@ a{
     font-weight: bold;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+.file-list-container {
+    width: 100%;
+    max-width: 400px;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .file-list-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .file-header-left {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+  }
+  
+  .folder-icon {
+    margin-right: 8px;
+  }
+  
+  .see-all-link {
+    color: #aaa;
+    text-decoration: none;
+  }
+  
+  .file-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .file-item:hover {
+    background-color: #444;
+  }
+  
+  .file-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .file-name {
+    font-weight: bold;
+  }
+  
+  .file-type,
+  .file-size {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .download-icon {
+    color: #4CAF50;
+  }
+  
+
+.pdf
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
