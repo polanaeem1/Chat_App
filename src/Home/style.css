@@ -2,6 +2,8 @@
   background-color: black;
   height: 100vh;
   padding-top: 40px;
+  overflow: auto;
+  padding-bottom: 40px;
 }
 .home-page {
   height: 90vh;
@@ -9,7 +11,7 @@
   color: azure;
   width: 80%;
   background-image: url("../images/Vector\ 1.png");
-  background-position:  bottom;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;
 }
