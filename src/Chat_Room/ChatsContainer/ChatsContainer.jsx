@@ -6,9 +6,11 @@ import ChatBox from "./ChatBox";
 import "./style.css";
 import { auth, db } from "../../firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { useNavigate } from "react-router";
 
 const ChatsContainer = () => {
   const [usersData, setUsersData] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const getData = async () => {
       const docRef = collection(db, "users");
@@ -19,13 +21,17 @@ const ChatsContainer = () => {
       });
       return usersData;
     };
-    getData().then((data) => {
-      setUsersData(
-        data.filter((user) => {
-          return user.id !== auth.currentUser.uid;
-        })
-      );
-    });
+    if (!auth.currentUser) {
+      navigate("/SignIn");
+    } else {
+      getData().then((data) => {
+        setUsersData(
+          data.filter((user) => {
+            return user.id !== auth.currentUser.uid;
+          })
+        );
+      });
+    }
   }, []);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -46,7 +52,9 @@ const ChatsContainer = () => {
               if (searchQuery === "") {
                 return true;
               } else {
-                return user.finalUserName.toLowerCase() === searchQuery.toLowerCase();
+                return (
+                  user.finalUserName.toLowerCase() === searchQuery.toLowerCase()
+                );
               }
             })
             .map((user) => {
