@@ -10,8 +10,11 @@ import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser, clearUser } from "../../slices/userSlice";
 const SideBar = ({ setActive }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <div className="sidebar-container">
       <aside>
@@ -63,7 +66,10 @@ const SideBar = ({ setActive }) => {
             flip="horizontal"
             size="2x"
             color="red"
-            onClick={() => auth.signOut().then(() => navigate("/"))}
+            onClick={() => {
+              auth.signOut().then(() => navigate("/"));
+              dispatch(clearUser());
+            }}
           />
         </div>
       </aside>

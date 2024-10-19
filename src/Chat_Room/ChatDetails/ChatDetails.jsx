@@ -9,6 +9,8 @@ import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import photo from "../../images/profile p.png";
+import { useSelector } from "react-redux";
+import { auth } from "../../firebase";
 
 const files = [
   { name: "GTA5.rar", type: "RAR", size: "70GB", url: "/downloads/GTA5.rar" },
@@ -21,12 +23,14 @@ const files = [
 ];
 
 const ChatDetails = () => {
+  const user = useSelector((state) => state.user);
+
   return (
     <div className="chat-details-container">
       <div className="c-d-photo">
         <img src={profile} alt="profile photo" />
       </div>
-      <p className="c-d-contactname">Ahmed Zewail</p>
+      <p className="c-d-contactname">{user.userChat.name}</p>
 
       <div className="c-d-icons">
         <FontAwesomeIcon
