@@ -239,3 +239,44 @@ header h2 {
     border-radius: 10px 0 0 10px;
   }
 }
+@media (max-width: 320px) {
+  .chat-list{
+    padding-right:25px;
+  }
+  header h2 {
+    font-size: 12px;
+  }
+  .chat-box {
+    width: 85px;
+    height: 30px;
+  }
+  .chat-name {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .Search-Box {
+    width: 90px;
+  }
+
+  .Search-Box input {
+    font-size: 4px;
+  }
+  .search-icon {
+    width: 15px;
+    height: 15px;
+  }
+  .chat-text {
+    font-size: 15px;
+  }
+  .Chat-Type {
+    padding: 1px;
+  }
+  .chat-img img {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px 0 0 10px;
+  }
+  .main {
+      grid-column: span 1;
+}
+}
