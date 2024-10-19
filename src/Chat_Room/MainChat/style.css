@@ -216,7 +216,7 @@
 @media (max-width: 767px) {
   .main-chat-container {
     padding: 2px;
-    grid-column: span 8;
+    grid-column: span 10;
   }
   .lower-side {
     width: 240px;
@@ -242,3 +242,41 @@
     }
   }
 }
+@media (max-width: 320px) {
+.main-chat-container {
+    padding: 2px;
+    grid-column: span 10;
+  }
+.lower-side {
+    width: 118px;
+  }
+.createMsg-container {
+    width: 450px;
+  }
+.Msg-input {
+    width: 385px;
+  }
+.chatHero-container {
+    width: 460px;
+    padding: 12px;
+  }
+.message-container-sender {
+    .message-text {
+      font-size: 15px;
+    }
+  }
+.message-container-receiver {
+    .message-text {
+      font-size: 15px;
+    }
+  }
+  .photo-img {
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+  }
+.search-input{
+font-size: small;
+  }
+}
+
