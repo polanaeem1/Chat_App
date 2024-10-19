@@ -27,7 +27,7 @@ const ChatHero = ({send}) => {
     if (endOfMessagesRef.current) {
       endOfMessagesRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [msg]);
+  }, [send]);
 
   return (
     <div className="chatHero-container" ref={chatContainerRef}>
