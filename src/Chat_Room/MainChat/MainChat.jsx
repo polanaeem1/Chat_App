@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import CreateMsg from "./CreateMsg";
 import ChatHero from "./ChatHero";
 import UserData from "./UserData";
-const MainChat = () => {
+const MainChat = ({ active }) => {
+  const [send, setSend] = useState(false)
   return (
-    <div className="main-chat-container">
+    <div
+      className={active ? "main-chat-container-active" : "main-chat-container"}
+    >
       <UserData />
-      <ChatHero />
-      <CreateMsg /> 
+      <ChatHero send={send} />
+      <CreateMsg setSend={setSend} send={send} />
     </div>
   );
 };

@@ -57,7 +57,7 @@ const SignIn = () => {
 
   return (
     <>
-      <div className="main">
+      <div className="main-sign-in">
         <div className="header">
           <div className="logo">
             <svg

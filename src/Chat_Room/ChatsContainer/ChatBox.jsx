@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 
-const ChatBox = ({ name, id }) => {
+const ChatBox = ({ name, id, setActive, active }) => {
   const [chatBio, setChatBio] = useState("Hello what’s up");
   const [messageTime, setMessageTime] = useState("5m");
   const [messageNum, setMessageNum] = useState(2);
@@ -28,8 +28,8 @@ const ChatBox = ({ name, id }) => {
       console.log("hello");
     } else {
       try {
+        setActive(false);
         const newChatRef = doc(chatRef);
-        console.log(newChatRef);
         const chatId = newChatRef.id;
         const docRef = doc(db, "userChats", auth.currentUser.uid);
         const docSnap = await getDoc(docRef);

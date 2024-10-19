@@ -8,7 +8,7 @@ import { auth, db } from "../../firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router";
 
-const ChatsContainer = () => {
+const ChatsContainer = ({active,setActive}) => {
   const [usersData, setUsersData] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -36,7 +36,7 @@ const ChatsContainer = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="main">
+    <div className={active?"main-active":"main"}>
       <div className="chats-container">
         <header>
           <h2>Messages</h2>
@@ -59,7 +59,7 @@ const ChatsContainer = () => {
             })
             .map((user) => {
               return (
-                <ChatBox name={user.finalUserName} key={user.id} id={user.id} />
+                <ChatBox name={user.finalUserName} key={user.id} id={user.id} setActive={setActive}  active={active}/>
               );
             })}
         </div>

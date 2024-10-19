@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { auth, db } from "../../firebase";
 import { addUser, lastMsgEdit } from "../../slices/userSlice";
 
-const CreateMsg = () => {
+const CreateMsg = ({setSend,send}) => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [text, setText] = useState("");
@@ -25,7 +25,7 @@ const CreateMsg = () => {
         }),
       });
       setText(""); 
-      
+      setSend(!send)
     } catch (error) {
       console.log(error);
       
